@@ -81,33 +81,43 @@ LANGCHAIN_PROJECT=civic-assistance-agent
 
 ### Running the Application
 
-**Start the Streamlit Web Application:**
+**Start the Flask Web Application (Main Server):**
+```bash
+python app.py
+```
+
+*(Optional)* **Start the Streamlit Web Interface:**
 ```bash
 streamlit run src/streamlit_app.py
 ```
 
-**Run in Console Mode:**
+*(Optional)* **Run in Console Mode:**
 ```bash
 python src/main.py
 ```
 
 ## 📁 Repository Structure
 
-```
-zynd-protocals-application/
+```text
+zynd-hackathon-prod/
 ├── src/                    # Application source code
+│   ├── app.py              # Main Flask web application backend
 │   ├── agents.py           # Core agent definitions
 │   ├── graph.py            # Main orchestrator logic (LangGraph)
-│   ├── streamlit_app.py    # Streamlit web interface
+│   ├── rag.py              # Retrieval Augmented Generation logic
+│   ├── streamlit_app.py    # Alternative Streamlit web interface
 │   ├── schemas.py          # Data models (Pydantic)
+│   ├── templates/          # HTML templates for the Flask app
 │   └── ...                 # Other specific agent components
 ├── tests/                  # Test scripts and query cases
 │   ├── indian_test_queries.md
-│   └── verify_*.py         # Verification and CLI test scripts
+│   └── verify_*.py         # Verification and test scripts
 ├── docs/                   # Additional documentation
 ├── agent_desc_md/          # Agent specifications and prompts
-├── .env.example            # Environment variables template
+├── chroma_db/              # Local Vector Database (Git LFS)
+├── .env                    # Environment variables (Create this)
 ├── requirements.txt        # Python dependencies
+├── Dockerfile              # Docker configuration for deployment
 └── README.md               # This documentation
 ```
 
